@@ -1,0 +1,16 @@
+{
+    "slider": [
+        {
+            "src": "images/car1.jpg",
+            "alt": "this car"
+        },
+        {
+            "src": "images/net1.jpg",
+            "alt": "this netflix"
+        },
+        {
+            "src": "images/car1.jpg",
+            "alt": "this car"
+        }
+    ]
+}
