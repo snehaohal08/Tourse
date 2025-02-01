@@ -74,7 +74,7 @@ export default function ServiceComponent() {
                     {services.map((service) => (
                         <div key={service.id} className="p-8 rounded-lg  relative">
                             {/* Icon Box */}
-                            <div className="w-28 h-28 mx-auto mb-6 flex items-center justify-center border-2 hover:bg-orange-500   border-dashed border-gray-300 rounded-full">
+                            <div className="w-28 h-28 mx-auto mb-6 flex items-center justify-center border-2    border-dashed border-gray-300 rounded-full">
                                 {service.icon}
                             </div>
 
