@@ -56,24 +56,25 @@ export default function ServiceComponent() {
     ];
 
     return (
-        <section className="relative z-10 py-20 bg-[#FAFAFA]">
-            <div className="max-w-[900px] mx-auto px-4 sm:px-6 lg:px-8">
+        <section className="py-10 md:py-20 relative z-10  bg-[#FAFAFA]">
+            <div className="max-w-[1100px] mx-auto px-4 sm:px-6 lg:px-8">
                 {/* Section Title */}
-                <div className="text-center mb-16">
-                    <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-800">
-                        PROVIDING AMAZING SERVICES <br /> TO OUR CLIENTS
-                    </h2>
-                    <h4 className="text-[18px] sm:text-[20px] text-[#f1f1f1] font-bold uppercase tracking-widest mt-4">
-                        SERVICES
-                    </h4>
-                </div>
+                <div className="mb-10 relative">
+          <h4 className="hidden md:block text-[18px] sm:text-[20px] text-gray-300 font-bold uppercase tracking-widest absolute left-[-100px] top-1/2 -translate-y-1/2 rotate-90 origin-left">
+            SERVICES
+          </h4>
+          <h2 className="text-[22px] sm:text-[24px] md:text-[28px] font-sans font-bold text-gray-800 mb-6 text-justify md:text-left">
+            PROVIDING AMAZING SERVICES <br className="hidden md:block" /> TO OUR CLIENTS
+          </h2>
+        </div>
+
 
                 {/* Services Grid */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
                     {services.map((service) => (
-                        <div key={service.id} className="p-8 rounded-lg text-center relative">
+                        <div key={service.id} className="p-8 rounded-lg  relative">
                             {/* Icon Box */}
-                            <div className="w-28 h-28 mx-auto mb-6 flex items-center justify-center border-2 border-dashed border-gray-300 rounded-full">
+                            <div className="w-28 h-28 mx-auto mb-6 flex items-center justify-center border-2 hover:bg-orange-500   border-dashed border-gray-300 rounded-full">
                                 {service.icon}
                             </div>
 
@@ -84,13 +85,13 @@ export default function ServiceComponent() {
 
                             {/* Title */}
                             <h3 className="text-xl font-semibold text-gray-800 mb-4">
-                                <a href="/services" className="hover:text-orange-500 transition-colors duration-300">
+                                <a href="/services" className="hover:text-orange-500 transition-colors duration-300 font-sans">
                                     {service.title}
                                 </a>
                             </h3>
-
+-
                             {/* Description */}
-                            <p className="text-gray-600 text-sm leading-relaxed">{service.description}</p>
+                            <p className="text-gray-600 text-sm leading-relaxed font-sans text-[16px]">{service.description}</p>
                         </div>
                     ))}
                 </div>
