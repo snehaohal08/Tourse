@@ -6,10 +6,12 @@ import Layout from "@/pages/Layout"
 import Services from "./pages/Services";
 import AboutComponenet from "@/components/AboutComponent";
 import ServiceComponenet from "./components/ServicesComponenet";
+import ContactForm from "./components/ContactForm";
 
 export const App = () => {
   return (
     <div>
+    <ContactForm/>
     <AboutComponenet/>
     <ServiceComponenet/>
     </div>
