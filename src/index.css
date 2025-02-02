@@ -3,11 +3,7 @@
 @tailwind utilities;
 
 
-@layer base {
-  .active {
-    @apply text-primary;
-  }
-}
+
 .bgt{
   
 /* From https://css.glass */
