@@ -7,10 +7,12 @@ import Services from "./pages/Services";
 import AboutComponenet from "@/components/AboutComponent";
 import ServiceComponenet from "./components/ServicesComponenet";
 import ContactForm from "./components/ContactForm";
+import ContactUs from "./components/ContactUs";
 
 export const App = () => {
   return (
     <div>
+    <ContactUs/>
     <ContactForm/>
     <AboutComponenet/>
     <ServiceComponenet/>
