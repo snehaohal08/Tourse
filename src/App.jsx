@@ -9,11 +9,15 @@ import ServiceComponenet from "./components/ServicesComponenet";
 import ContactForm from "./components/ContactForm";
 import ContactUs from "./components/ContactUs";
 import OurCarsComponent from "./components/OurCarsComponenet";
+import CarBookingform from "./components/CarBookingform.jsx";
+
 
 export const App = () => {
   return (
     <div>
+      {/* <CarRental/> */}
       <OurCarsComponent/>
+      <CarBookingform/>
     <ContactUs/>
     <ContactForm/>
     <AboutComponenet/>
