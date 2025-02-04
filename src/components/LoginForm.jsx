@@ -79,7 +79,8 @@ export default function LoginForm() {
               placeholder="Enter your Email or mobile no" 
               value={formData.emailOrMobile}
               onChange={handleChange}
-              className={`pr-10 border-2 border-transparent focus:outline-none border-gray-400 focus:border-orange-500 hover:border-orange-500 px-3 py-2 w-full ${errors.emailOrMobile ? "border-red-500" : ""}`}            />
+              className={`pr-10 border-2 border-transparent focus:outline-none border-gray-400 focus:border-orange-500 hover:border-orange-500 px-3 py-2 w-full ${errors.emailOrMobile ? "border-red-500" : ""}`}
+            />
             {errors.emailOrMobile && (
               <p className="text-red-500 text-sm flex items-center">
                 <AlertCircle className="w-4 h-4 mr-1" />
@@ -93,11 +94,11 @@ export default function LoginForm() {
               id="password"
               name="password"
               type="password"
-              placeholder="Enter your paassword" 
+              placeholder="Enter your password" 
               value={formData.password}
-             
               onChange={handleChange}
-              className={`pr-10 border-2 border-transparent focus:outline-none border-gray-400 focus:border-orange-500 hover:border-orange-500 px-3 py-2 w-full ${errors.emailOrMobile ? "border-red-500" : ""}`}            />
+              className={`pr-10 border-2 border-transparent focus:outline-none border-gray-400 focus:border-orange-500 hover:border-orange-500 px-3 py-2 w-full ${errors.password ? "border-red-500" : ""}`}
+            />
             {errors.password && (
               <p className="text-red-500 text-sm flex items-center">
                 <AlertCircle className="w-4 h-4 mr-1" />
