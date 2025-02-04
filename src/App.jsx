@@ -10,12 +10,15 @@ import ContactForm from "./components/ContactForm";
 import ContactUs from "./components/ContactUs";
 import OurCarsComponent from "./components/OurCarsComponenet";
 import CarBookingform from "./components/CarBookingform.jsx";
+import SignUpForm from "./components/SignUpForm.jsx";
+import LoginForm from "./components/LoginForm";
 
 
 export const App = () => {
   return (
     <div>
-      {/* <CarRental/> */}
+      <LoginForm/>
+      <SignUpForm/>
       <OurCarsComponent/>
       <CarBookingform/>
     <ContactUs/>

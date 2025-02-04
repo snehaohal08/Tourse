@@ -18,19 +18,7 @@ export default function CarBookingform() {
         <CardContent className="p-6">
           <form className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {/* Vehicle Type */}
-            <div className="space-y-2">
-  <Label className="text-sm font-semibold text-gray-600">VEHICLE TYPE</Label>
-  <Select>
-    <SelectTrigger className="w-full bg-white border border-gray-300 rounded-none">
-      <SelectValue placeholder="SUV" />
-    </SelectTrigger>
-    <SelectContent className="bg-white rounded-none">
-      <SelectItem value="suv" className="hover:bg-blue-400 relative">SUV</SelectItem>
-      <SelectItem value="sedan" className="hover:bg-blue-400 relative">Sedan</SelectItem>
-      <SelectItem value="luxury" className="hover:bg-blue-400 relative">Luxury</SelectItem>
-    </SelectContent>
-  </Select>
-</div>
+            
 
 
             {/* Departure Date */}
@@ -115,7 +103,7 @@ export default function CarBookingform() {
             <div className="mt-5 text-center md:text-left">
                   <a
                     href="#"
-                    className="font-semibold text-[14px] bg-white transition-all duration-300 text-orange-500 px-9 py-2 rounded-full mt-4 hover:bg-red-500 hover:text-white border-2 border-orange-500 inline-block"
+                    className="font-semibold text-[14px] bg-white transition-all duration-300 text-orange-500 px-9 py-2 rounded-full mt-4 hover:bg-orange-500 hover:text-white border-2 border-orange-500 inline-block"
                   >
                     BOOK NOW
                   </a>
