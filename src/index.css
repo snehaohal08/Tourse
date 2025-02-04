@@ -16,3 +16,8 @@ backdrop-filter: blur(0px);
 
 
 }
+.city-item:hover {
+    background-color: #007FFF;
+    color: white; /* Optional: to change the text color when hovered */
+  }
+  
