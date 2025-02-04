@@ -92,37 +92,101 @@ export default function SignUpForm() {
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
             <Label htmlFor="username">Username <span className="text-red-500">*</span></Label>
-            <Input id="username" name="username" type="text" placeholder="Enter your username" value={formData.username} onChange={handleChange} />
+            <Input 
+              id="username" 
+              name="username" 
+              type="text" 
+              placeholder="Enter your username" 
+              value={formData.username} 
+              onChange={handleChange} 
+              className={`pr-10 border-2 border-transparent focus:outline-none focus:ring-0 border-gray-400 focus:border-orange-500 hover:border-orange-500 px-3 py-2 w-full ${errors.username ? "border-red-500" : ""}`} 
+            />
             {errors.username && <div className="text-red-500 text-sm mt-1">{errors.username}</div>}
           </div>
 
           <div>
             <Label htmlFor="fullName">Full Name <span className="text-red-500">*</span></Label>
-            <Input id="fullName" name="fullName" type="text" placeholder="Enter your full name" value={formData.fullName} onChange={handleChange} />
+            <Input 
+              id="fullName" 
+              name="fullName" 
+              type="text" 
+              placeholder="Enter your full name" 
+              value={formData.fullName} 
+              onChange={handleChange} 
+              className={`pr-10 border-2 border-transparent focus:outline-none focus:ring-0 border-gray-400 focus:border-orange-500 hover:border-orange-500 px-3 py-2 w-full ${errors.fullName ? "border-red-500" : ""}`} 
+            />
             {errors.fullName && <div className="text-red-500 text-sm mt-1">{errors.fullName}</div>}
           </div>
 
           <div>
             <Label htmlFor="mobile">Mobile <span className="text-red-500">*</span></Label>
-            <Input id="mobile" name="mobile" type="tel" placeholder="Enter your 10-digit mobile number" value={formData.mobile} onChange={handleChange} />
+            <Input 
+              id="mobile" 
+              name="mobile" 
+              type="tel" 
+              placeholder="Enter your 10-digit mobile number" 
+              value={formData.mobile} 
+              onChange={handleChange} 
+              className={`pr-10 border-2 border-transparent focus:outline-none focus:ring-0 border-gray-400 focus:border-orange-500 hover:border-orange-500 px-3 py-2 w-full ${errors.mobile ? "border-red-500" : ""}`} 
+            />
             {errors.mobile && <div className="text-red-500 text-sm mt-1">{errors.mobile}</div>}
           </div>
 
           <div>
             <Label htmlFor="email">Email <span className="text-red-500">*</span></Label>
-            <Input id="email" name="email" type="email" placeholder="Enter your email" value={formData.email} onChange={handleChange} />
+            <Input 
+              id="email" 
+              name="email" 
+              type="email" 
+              placeholder="Enter your email" 
+              value={formData.email} 
+              onChange={handleChange} 
+              className={`pr-10 border-2 border-transparent focus:outline-none focus:ring-0 border-gray-400 focus:border-orange-500 hover:border-orange-500 px-3 py-2 w-full ${errors.email ? "border-red-500" : ""}`} 
+            />
             {errors.email && <div className="text-red-500 text-sm mt-1">{errors.email}</div>}
           </div>
 
           <div>
             <Label htmlFor="password">Password <span className="text-red-500">*</span></Label>
-            <Input id="password" name="password" type="password" placeholder="Enter your password" value={formData.password} onChange={handleChange} />
+            <div className="relative">
+              <Input 
+                id="password" 
+                name="password" 
+                type={showPassword ? "text" : "password"} 
+                placeholder="Enter your password" 
+                value={formData.password} 
+                onChange={handleChange} 
+                className={`pr-10 border-2 border-transparent focus:outline-none focus:ring-0 border-gray-400 focus:border-orange-500 hover:border-orange-500 px-3 py-2 w-full ${errors.password ? "border-red-500" : ""}`} 
+              />
+              <button 
+                type="button" 
+                onClick={() => setShowPassword(!showPassword)} 
+                className="absolute right-3 top-3">
+                {showPassword ? <EyeOff /> : <Eye />}
+              </button>
+            </div>
             {errors.password && <div className="text-red-500 text-sm mt-1">{errors.password}</div>}
           </div>
 
           <div>
             <Label htmlFor="confirmPassword">Confirm Password <span className="text-red-500">*</span></Label>
-            <Input id="confirmPassword" name="confirmPassword" type="password" placeholder="Confirm your password" value={formData.confirmPassword} onChange={handleChange} />
+            <div className="relative">
+              <Input 
+                id="confirmPassword" 
+                name="confirmPassword" 
+                type={showConfirmPassword ? "text" : "password"} 
+                placeholder="Confirm your password" 
+                value={formData.confirmPassword} 
+                onChange={handleChange} 
+                className={`pr-10 border-2 border-transparent focus:outline-none focus:ring-0 border-gray-400 focus:border-orange-500 hover:border-orange-500 px-3 py-2 w-full ${errors.confirmPassword ? "border-red-500" : ""}`} 
+              />
+              <button 
+                type="button" 
+                onClick={() => setShowConfirmPassword(!showConfirmPassword)} 
+                className="absolute right-3 top-3">
+                {showConfirmPassword ? <EyeOff /> : <Eye />}
+              </button>
+            </div>
             {errors.confirmPassword && <div className="text-red-500 text-sm mt-1">{errors.confirmPassword}</div>}
           </div>
 

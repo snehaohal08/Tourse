@@ -76,6 +76,7 @@ export default function LoginForm() {
               id="emailOrMobile"
               name="emailOrMobile"
               type="text"
+              placeholder="Enter your Email or mobile no" 
               value={formData.emailOrMobile}
               onChange={handleChange}
               className={`pr-10 border-2 border-transparent focus:outline-none border-gray-400 focus:border-orange-500 hover:border-orange-500 px-3 py-2 w-full ${errors.emailOrMobile ? "border-red-500" : ""}`}            />
@@ -92,6 +93,7 @@ export default function LoginForm() {
               id="password"
               name="password"
               type="password"
+              placeholder="Enter your paassword" 
               value={formData.password}
              
               onChange={handleChange}
