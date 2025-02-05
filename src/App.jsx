@@ -7,11 +7,13 @@ import OurCarsComponent from "./components/OurCarsComponenet";
 import CarBookingform from "./components/CarBookingform.jsx";
 import SignUpForm from "./components/SignUpForm.jsx";
 import LoginForm from "./components/LoginForm";
+import CarServices from "@/components/CarServices"
 
 
 export const App = () => {
   return (
     <div>
+      <CarServices/>
       <LoginForm/>
       <SignUpForm/>
       <OurCarsComponent/>
