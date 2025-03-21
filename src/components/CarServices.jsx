@@ -23,7 +23,9 @@ const CarServices = () => {
         {routes.map((route, index) => (
           <div key={index} className="route-item">
             <div className="route-details">
-              <span className="route-name">{`${route.from} to ${route.to}`}</span>
+              <span className="route-name">
+                <i className="fas fa-map-marker-alt"></i> {`${route.from} to ${route.to}`}
+              </span>
               <span className="price">₹{route.price}*</span>
             </div>
           </div>
@@ -32,56 +34,58 @@ const CarServices = () => {
 
       <div className="footer">
         <p className="disclaimer">* Indicative prices, it may vary</p>
-        <div className="logo">श्री टूर्स अँड ट्रॅव्हल्स</div>
+        <div className="logo"><span className="highlight">श्री</span> टूर्स अँड ट्रॅव्हल्स</div>
       </div>
 
       <style>{`
         .price-list-container {
-          max-width: 600px;
+          max-width: 650px;
           margin: 0 auto;
           font-family: 'Arial', sans-serif;
           background: #ffffff;
-          border-radius: 15px;
-          box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        //   border-radius: 20px    ;
+          box-shadow: 0 15px 45px rgba(0, 0, 0, 0.15);
           overflow: hidden;
           animation: fadeIn 1s ease-in-out;
         }
 
         .header {
-          background: linear-gradient(135deg, #ffc107, #ff9800);
-          padding: 30px 20px;
+          background: linear-gradient(45deg, #ff6f61, #ff9800);
+          padding: 40px 20px;
           text-align: center;
+          color: white;
+          box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
           animation: slideDown 0.8s ease-out;
         }
 
         .header h1 {
           margin: 0;
-          font-size: 28px;
-          color: #fff;
+          font-size: 32px;
+          font-weight: 600;
         }
 
         .header p {
           margin: 10px 0 0;
-          font-size: 16px;
-          color: #fff;
+          font-size: 18px;
         }
 
         .routes-container {
-          padding: 20px;
-          background: #f9f9f9;
+          padding: 30px 20px;
+          background: #f0f0f0;
         }
 
         .route-item {
           display: flex;
           align-items: center;
           background: #ffffff;
-          border-radius: 10px;
-          padding: 15px;
-          margin-bottom: 15px;
-          box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+          border-radius: 15px;
+          padding: 20px;
+          margin-bottom: 20px;
+          box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
           opacity: 0;
           transform: translateY(20px);
           animation: fadeUp 0.5s forwards ease-out;
+          transition: box-shadow 0.3s ease-in-out;
         }
 
         .route-item:nth-child(even) {
@@ -93,9 +97,7 @@ const CarServices = () => {
         }
 
         .route-item:hover {
-          transform: scale(1.05);
-          box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
-          transition: transform 0.3s, box-shadow 0.3s;
+          box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
         }
 
         .route-details {
@@ -105,41 +107,61 @@ const CarServices = () => {
         }
 
         .route-name {
-          font-size: 16px;
-          color: #333;
+          font-size: 18px;
           font-weight: 500;
+          color: #333;
+          display: flex;
+          align-items: center;
+          transition: transform 0.3s ease-in-out;
+        }
+
+        .route-name i {
+          margin-right: 8px;
+          color: #ff9800;
+        }
+
+        .route-name:hover {
+          transform: scale(1.1); /* Zoom the text */
         }
 
         .price {
-          font-size: 16px;
+          font-size: 18px;
           font-weight: bold;
           color: #ff9800;
         }
 
         .footer {
           background: #2a2a40;
-          padding: 20px;
+          padding: 25px;
           text-align: center;
         }
 
         .disclaimer {
-          font-size: 12px;
-          color: #888;
+          font-size: 14px;
+          color: #aaa;
         }
 
         .logo {
-          margin-top: 10px;
-          font-size: 24px;
+          margin-top: 15px;
+          font-size: 28px;
           font-weight: bold;
           color: #fff;
         }
 
+        .highlight {
+          color: #ff9800;
+        }
+
         @media (max-width: 480px) {
           .header h1 {
-            font-size: 24px;
+            font-size: 26px;
           }
 
           .route-item {
+            font-size: 14px;
+          }
+
+          .price {
             font-size: 14px;
           }
         }
@@ -173,11 +195,6 @@ const CarServices = () => {
             transform: translateY(0);
             opacity: 1;
           }
-        }
-
-        .route-item:hover {
-          transform: scale(1.05) !important;
-          transition: transform 0.3s ease-in-out;
         }
       `}</style>
     </div>

@@ -1,0 +1,17 @@
+[
+    {
+        "id":1,
+        "Sname":"Total Sales",
+        "Series":12
+    },
+    {
+        "id":2,
+        "Sname":"Campaign Send",
+        "Series":30
+    },
+    {
+        "id":3,
+        "Sname":"Daily Sales",
+        "Series":20
+    }
+]

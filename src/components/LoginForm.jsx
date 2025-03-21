@@ -4,8 +4,9 @@ import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { AlertCircle } from "lucide-react"
+import axios from "axios"
 
 export default function LoginForm() {
   const [formData, setFormData] = useState({
@@ -56,10 +57,24 @@ export default function LoginForm() {
     return isValid
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
-    if (validateForm()) {
-      console.log("Login data:", formData)
+
+    if (!validateForm()) {
+      return
+    }
+
+    try {
+      const response = await axios.post("http://localhost:3001/create", {
+        M_no: formData.emailOrMobile,
+        Password: formData.password,
+      })
+      console.log(response.data) // Log response from the server
+      alert("Login successful!") // Show success message
+      setFormData({ emailOrMobile: "", password: "" }) // Reset form
+    } catch (error) {
+      console.error("Login failed:", error.response?.data || error.message)
+      alert("Login failed. Please try again.") // Show error message
     }
   }
 
@@ -76,10 +91,12 @@ export default function LoginForm() {
               id="emailOrMobile"
               name="emailOrMobile"
               type="text"
-              placeholder="Enter your Email or mobile no" 
+              placeholder="Enter your Email or mobile no"
               value={formData.emailOrMobile}
               onChange={handleChange}
-              className={`pr-10 border-2 border-transparent focus:outline-none border-gray-400 focus:border-orange-500 hover:border-orange-500 px-3 py-2 w-full ${errors.emailOrMobile ? "border-red-500" : ""}`}
+              className={`pr-10 border-2 border-gray-400 focus:outline-none focus:border-orange-500 hover:border-orange-500 px-3 py-2 w-full ${
+                errors.emailOrMobile ? "border-red-500" : ""
+              }`}
             />
             {errors.emailOrMobile && (
               <p className="text-red-500 text-sm flex items-center">
@@ -94,10 +111,12 @@ export default function LoginForm() {
               id="password"
               name="password"
               type="password"
-              placeholder="Enter your password" 
+              placeholder="Enter your password"
               value={formData.password}
               onChange={handleChange}
-              className={`pr-10 border-2 border-transparent focus:outline-none border-gray-400 focus:border-orange-500 hover:border-orange-500 px-3 py-2 w-full ${errors.password ? "border-red-500" : ""}`}
+              className={`pr-10 border-2 border-gray-400 focus:outline-none focus:border-orange-500 hover:border-orange-500 px-3 py-2 w-full ${
+                errors.password ? "border-red-500" : ""
+              }`}
             />
             {errors.password && (
               <p className="text-red-500 text-sm flex items-center">
@@ -106,11 +125,12 @@ export default function LoginForm() {
               </p>
             )}
           </div>
-          
-          <div className="mt-5 text-center">
-            <Button type="submit" className="w-full font-semibold bg-orange-500 text-white px-4 py-2 hover:bg-orange-600">Sign Up</Button>
-          </div>
 
+          <div className="mt-5 text-center">
+            <Button type="submit" className="w-full font-semibold bg-orange-500 text-white px-4 py-2 hover:bg-orange-600">
+              Sign In
+            </Button>
+          </div>
         </form>
       </CardContent>
     </Card>

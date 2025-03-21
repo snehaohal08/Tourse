@@ -2,7 +2,7 @@ import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious
 
 const OurCarsComponent = () => {
   return (
-    <section className="cars-section relative py-20 bg-gray-100 overflow-hidden">
+    <section className="cars-section relative py-20 bg-[#FFFFFF] overflow-hidden">
       <div className="auto-container max-w-[900px] mx-auto px-4">
         <div className="content-container">
           <div className="row flex flex-wrap items-center">
@@ -15,7 +15,7 @@ const OurCarsComponent = () => {
                     <h2 className="text-[22px] sm:text-[24px] font-sans font-bold text-gray-800 mb-4 text-justify md:text-left">
                       IRRESISTIBLE POWER, <br /> UNPARALLELED PRESENCE
                     </h2>
-                    <h4 className="hidden md:block text-[18px] sm:text-[20px] text-gray-300 font-bold uppercase tracking-widest absolute left-[-100px] top-20 -translate-y-1/2 rotate-90 origin-left">
+                    <h4 className="hidden md:block text-[24px] sm:text-[20px] text-[#F1F1F1] font-bold uppercase tracking-widest absolute left-[-200px] top-20 -translate-y-1/2 rotate-90 origin-left">
                       OUR CARS
                     </h4>
                   </div>
@@ -29,7 +29,7 @@ const OurCarsComponent = () => {
                 <div className='mt-5 mx-auto md:mx-16 text-center md:text-left'>
                 <a
                             href="#"
-                            className="font-semibold text-[14px] bg-white transition-all duration-300 text-orange-500 px-9 sm:px py-2 rounded-full mt-4 hover:bg-orange-500 hover:text-white border-2 border-orange-500 inline-block"
+                            className="font-semibold text-[14px] bg-[#FFFFFF] transition-all duration-300 text-orange-500 px-9 sm:px py-2 rounded-full mt-4 hover:bg-orange-500 hover:text-white border-2 border-orange-500 inline-block"
                         >
                             BOOK NOW
                         </a>

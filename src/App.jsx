@@ -8,20 +8,38 @@ import CarBookingform from "./components/CarBookingform.jsx";
 import SignUpForm from "./components/SignUpForm.jsx";
 import LoginForm from "./components/LoginForm";
 import CarServices from "@/components/CarServices"
+import LoginSignup from "@/components/LoginSignup"
+import PieChart from "./components/charts/PieChart";
+import DonutChart from "./components/DonutChart";
+import BarChart from "./components/charts/BarChart";
+import ExPieChart from "./components/charts/ExPieChart";
+import CRUDop from "./components/CRUD/Booking";
+import Admin from "./pages/Admin";
+
+// import DashBoard from "./components/DashBoard";
 
 
 export const App = () => {
   return (
     <div>
-      <CarServices/>
-      <LoginForm/>
-      <SignUpForm/>
-      <OurCarsComponent/>
+
+      {/* <DonutChart/> */}
+      {/* <PieChart/> */}
+      {/* <ExPieChart/> */}
+      <Admin/>
+      {/* <BarChart/> */}
+      {/* <DashBoard/> */}
+      {/* <CarServices/> */}
+      {/* <LoginForm/> */}
+      {/* <SignUpForm/>  */}
+      {/* <CRUDop/> */}
+      {/* <LoginSignup/> */}
+      {/* <OurCarsComponent/> */}
       <CarBookingform/>
-    <ContactUs/>
-    <ContactForm/>
-    <AboutComponenet/>
-    <ServiceComponenet/>
+    {/* <ContactUs/> */}
+    {/* <ContactForm/> */}
+    {/* <AboutComponenet/>
+    <ServiceComponenet/> */}
     </div>
   );
 };
