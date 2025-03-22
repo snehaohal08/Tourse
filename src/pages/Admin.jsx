@@ -1,7 +1,8 @@
 import { FiLogOut } from "react-icons/fi";
 import { TbBrandBooking } from "react-icons/tb";
-
+import { Button } from "@/components/ui/button";
 import React, { useState, useEffect } from "react";
+
 import {
   FiHome,
   // FiCalendar,
@@ -11,11 +12,10 @@ import {
   // FiMail,
   // FiFolder,
   // FiFileText,
-    
   FiMenu,
-  
 } from "react-icons/fi";
 import Chart from "react-apexcharts";
+import CarBookingForm from "@/components/CarBookingform";
 
 export default function Admin() {
   const [active, setActive] = useState("Dashboards");
@@ -47,7 +47,7 @@ export default function Admin() {
     console.log("User logged out");
     alert("Logged out successfully!");
     // Redirect to login page (adjust wbased on your routing setup)
-    window.location.href = "/"; 
+    window.location.href = "/";
   };
 
   const menuItems = [
@@ -55,8 +55,7 @@ export default function Admin() {
     { name: "Booking", icon: <TbBrandBooking /> },
     { name: "Users", icon: <FiUsers /> },
     { name: "Logout", icon: <FiLogOut />, onClick: handleLogout },
-];
-
+  ];
 
   const donutChartOptions = {
     chart: { type: "donut" },
@@ -88,7 +87,6 @@ export default function Admin() {
   ];
 
   return (
-    
     <div className="flex bg-gray-100 min-h-screen">
       {/* Sidebar */}
       <div
@@ -97,10 +95,13 @@ export default function Admin() {
         } md:w-64 md:translate-x-0`}
         style={{ zIndex: 50 }}
       >
-        
-<div className="flex justify-center mb-6">
-  <img src="images/ShreeLogo.png" alt="Travel Logo" className="h-20 w-auto" />
-</div>
+        <div className="flex justify-center mb-6">
+          <img
+            src="images/ShreeLogo.png"
+            alt="Travel Logo"
+            className="h-20 w-auto"
+          />
+        </div>
         <ul className="space-y-3">
           {menuItems.map((item, index) => (
             <li
@@ -208,7 +209,30 @@ export default function Admin() {
             </div>
           </div>
         </div>
+        {/* User content */}
+        <Button
+          type="submit"
+          onClick={() => (window.location.href = "/contact")}
+          className="w-40 font-semibold bg-orange-500 text-white px-4 py-2 hover:bg-orange-600 rounded-lg shadow-lg mt-6"
+        >
+          Sign Up
+        </Button>
+        <div className="overflow-x-auto">
+          <table className="w-full border-collapse mt-6">
+            <thead>
+              <tr className="bg-black text-white">
+                <th className="px-4 py-2 text-left">ID</th>
+                <th className="px-4 py-2 text-left">Username</th>
+                <th className="px-4 py-2 text-left">Email</th>
+                <th className="px-4 py-2 text-left">Message</th>
+                <th className="px-4 py-2 text-left">Subject</th>
+              </tr>
+            </thead>
+          </table>
+        </div>
       </div>
+      
     </div>
+    
   );
 }

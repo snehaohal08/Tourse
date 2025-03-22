@@ -3,10 +3,63 @@ import { Input } from "@/components/ui/input";
 import { FiPhone } from "react-icons/fi";
 import { MdOutlineMailOutline } from "react-icons/md";
 import { Textarea } from "@/components/ui/textarea";
-import { Mail, Phone } from "lucide-react";
-import React from 'react';
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function ContactForm() {
+  const navigate = useNavigate();
+  const [inpval, setINP] = useState({
+    Username: "",
+    Email: "",
+    Message: "",
+    Subject: "",
+  });
+
+  const setdata = (e) => {
+    const { name, value } = e.target;
+    setINP((preval) => ({
+      ...preval,
+      [name]: value,
+    }));
+  };
+
+  const addinpdata = async (e) => {
+    e.preventDefault();
+    const { Username, Email, Message, Subject } = inpval;
+
+    if (!Username) {
+      alert("Username is required");
+    } else if (!Email) {
+      alert("Email is required");
+    } else if (!Email.includes("@")) {
+      alert("Enter a valid email");
+    } else if (!Message) {
+      alert("Message is required");
+    } else if (!Subject) {
+      alert("Subject is required");
+    } else {
+      try {
+        const res = await fetch("http://localhost:8001/create", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(inpval),
+        });
+
+        const data = await res.json();
+        if (res.status === 422 || !data) {
+          alert("Error adding data");
+        } else {
+          navigate("/");
+          alert("Data added successfully");
+        }
+      } catch (error) {
+        console.error("Error:", error);
+      }
+    }
+  };
+
   return (
     <div className="container mx-auto px-4 py-12 max-w-[1100px]">
       <div className="grid gap-12 lg:grid-cols-2">
@@ -35,21 +88,28 @@ export default function ContactForm() {
 
         {/* Form Section */}
         <div>
-          <h2 className="mb-6 text-2xl font-bold font-sans tracking-tight text-[18px]">DROP US A LINE</h2>
+          <h2 className="mb-6 text-2xl font-bold font-sans tracking-tight text-[18px]">
+            DROP US A LINE
+          </h2>
           <p className="mb-8 text-muted-foreground text-gray-600 text-[14px] font-sans">
-            Sicut malus voodoo. Aenean a dolor vulnerum aperire accedunt, mortui iam vivam. Qui tardius moveri, sed in
-            magna copia sint terribiles legionis.
+            Have any questions? Feel free to reach out to us!
           </p>
-          <form className="space-y-6">
+          <form className="space-y-6" onSubmit={addinpdata}>
             <div className="grid gap-4 sm:grid-cols-2">
               <Input
                 type="text"
+                name="Username"
+                value={inpval.Username}
+                onChange={setdata}
                 placeholder="Name"
                 required
                 className="hover:ring-2 hover:ring-orange-500 focus:ring-2 focus:ring-orange-500 rounded-none"
               />
               <Input
                 type="email"
+                name="Email"
+                value={inpval.Email}
+                onChange={setdata}
                 placeholder="E-mail"
                 required
                 className="hover:ring-2 hover:ring-orange-500 focus:ring-2 focus:ring-orange-500 rounded-none"
@@ -57,11 +117,17 @@ export default function ContactForm() {
             </div>
             <Input
               type="text"
+              name="Subject"
+              value={inpval.Subject}
+              onChange={setdata}
               placeholder="Subject"
               required
               className="hover:ring-2 hover:ring-orange-500 focus:ring-2 focus:ring-orange-500 rounded-none"
             />
             <Textarea
+              name="Message"
+              value={inpval.Message}
+              onChange={setdata}
               placeholder="Message"
               required
               className="hover:ring-2 hover:ring-orange-500 focus:ring-2 focus:ring-orange-500 min-h-[150px] rounded-none"
@@ -69,6 +135,7 @@ export default function ContactForm() {
             <div className="mt-5 text-center md:text-left">
               <Button
                 type="submit"
+                onClick={addinpdata} 
                 className="font-semibold text-sm sm:text-[14px] bg-white transition-all duration-300 text-orange-500 px-4 sm:px-6 py-2 rounded-full mt-4 hover:bg-orange-500 hover:text-white border-2 border-orange-500 inline-block focus:outline-none"
               >
                 BOOK NOW
